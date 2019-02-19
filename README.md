@@ -1,5 +1,5 @@
 # my-fridge
-MyFridge is an app which prevents food waste in your fridge.
+MyFridge is an app which will help you to avoid food waste from your fridge.
 
 
 ## Features
@@ -16,7 +16,7 @@ MyFridge is an app which prevents food waste in your fridge.
 
 
 ## Stack
-MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
+MyFridge is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 
 ## API
