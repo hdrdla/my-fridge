@@ -1,8 +1,8 @@
-# my-fridge
+# MY FRIDGE
 MyFridge is an app which will help you to avoid food waste from your fridge.
 
 
-## Features
+## FEATURES
   - [ ] Principle Features
     - Add item, date and quantity to the fridge or freezer
     - Show the list of items in fridge and freezer by date order (from the oldest to the latest)
@@ -15,7 +15,7 @@ MyFridge is an app which will help you to avoid food waste from your fridge.
     - show the list with defualt image of each item
 
 
-## Stack
+## STACK
 MyFridge is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 
@@ -23,7 +23,7 @@ MyFridge is using HTML, CSS, React for frontend and Express and MySQL for backen
 [EDAMAM](https://developer.edamam.com/edamam-docs-recipe-api)
 
 
-## Plan
+## PLAN
   - [ ] User Flow
   
    ![Image of userFlow](userFlow.png)
@@ -48,6 +48,22 @@ MyFridge is using HTML, CSS, React for frontend and Express and MySQL for backen
 
 
 
+
+## SETUP
+
+### Dependencies
+Run `yarn` to install dependencies.
+
+### Database Prep
+- [ ] Create `.env` file in project directory and add `DB_PASS=YOURPASSWORD`.
+
+- [ ] Type `mysql -u root -p -e "create database myFridge"` to create a database in MySQL.
+
+- [ ] Run `node server/models/database.js`. This will create a table called 'items' in your database. If you experience errors regarding authentication, run the following in mysql first: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD';`.
+
+
+### Run Your Start
+Run `yarn start` in your terminal .
 
 
 
