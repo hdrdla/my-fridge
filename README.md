@@ -25,15 +25,25 @@ MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 ## Plan
   - [ ] User Flow
+  
    ![Image of userFlow](userFlow.png)
+   
+   
   
   - [ ] Database schema
+  
    ![Image of Database](Database.png)
+   
+   
   
   - [ ] API routes plan
+  
    ![Image of Routes](Routes.png)
+   
+   
   
   - [ ] Full stack architecture drawing
+  
    ![Image of architecture](architecture.jpg)
 
 
