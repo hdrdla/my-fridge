@@ -59,7 +59,7 @@ Run `yarn` to install dependencies.
 
 - [ ] Type `mysql -u root -p -e "create database myFridge"` in your terminal to create a database in MySQL.
 
-- [ ] Run `node server/models/database.js`. This will create a table called 'items' in your database. If you experience errors regarding authentication, run the following in mysql first: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD';`.
+- [ ] Type `CREATE TABLE items (id INT(11) NOT NULL AUTO_INCREMENT, name VARCHAR(20) not null, fridge Boolean NOT NULL, date DATE, quantity INT(11), PRIMARY KEY (id));`.It will create a new table name items with columns (id, name, fridge, date, quantity).
 
 
 ### Run Your Start
