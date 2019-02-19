@@ -1,5 +1,5 @@
 # my-fridge
-MyFridge is an app which prevent food waste in your fridge.
+MyFridge is an app which prevents food waste in your fridge.
 
 ## Features
   - [ ] Principle Features
@@ -22,13 +22,13 @@ MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 ## Plan
   - [ ] User Flow
-   ![Image of userFlow](/desktop/userFlow)
+   ![Image of userFlow](/desktop/userFlow.png)
   
   - [ ] Database schema
-   ![Image of Database](/desktop/Database)
+   ![Image of Database](/desktop/Database.png)
   
   - [ ] API routes plan
-   ![Image of Routes](/desktop/Routes)
+   ![Image of Routes](/desktop/Routes.png)
   
   - [ ] Full stack architecture drawing
    ![Image of architecture](/desktop/architecture.jpg)
