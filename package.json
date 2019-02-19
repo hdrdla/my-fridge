@@ -1,0 +1,14 @@
+{
+  "name": "noFoodWaste",
+  "version": "1.0.0",
+  "description": "codely first project",
+  "main": "index.js",
+  "author": "Aleum",
+  "license": "MIT",
+  "scripts": {
+    "start": "concurrently --kill-others \"cd api && yarn start\" \"cd client && yarn start\""
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
+}
