@@ -22,16 +22,16 @@ MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 ## Plan
   - [ ] User Flow
-   ![Image of userFlow](/desktop/userFlow.png)
+   ![Image of userFlow](/Users/aleum/Documents/Codely/FirstProject/Readme_images/userFlow.png)
   
   - [ ] Database schema
-   ![Image of Database](/desktop/Database.png)
+   ![Image of Database](/Users/aleum/Documents/Codely/FirstProject/Readme_images/Database.png)
   
   - [ ] API routes plan
-   ![Image of Routes](/desktop/Routes.png)
+   ![Image of Routes](/Users/aleum/Documents/Codely/FirstProject/Readme_images/Routes.png)
   
   - [ ] Full stack architecture drawing
-   ![Image of architecture](/desktop/architecture.jpg)
+   ![Image of architecture](/Users/aleum/Documents/Codely/FirstProject/Readme_images/architecture.jpg)
 
 
 
