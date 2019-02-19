@@ -1,6 +1,7 @@
 # my-fridge
 MyFridge is an app which prevents food waste in your fridge.
 
+
 ## Features
   - [ ] Principle Features
     - Add item, date and quantity to the fridge or freezer
@@ -13,8 +14,10 @@ MyFridge is an app which prevents food waste in your fridge.
     - Move an item from fridge/freezer to freezer/fridge
     - show the list with defualt image of each item
 
+
 ## Stack
 MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
+
 
 ## API
 [EDAMAM](https://developer.edamam.com/edamam-docs-recipe-api)
@@ -22,16 +25,20 @@ MyFrige is using HTML, CSS, React for frontend and Express and MySQL for backend
 
 ## Plan
   - [ ] User Flow
-   ![Image of userFlow](/Users/aleum/Documents/Codely/FirstProject/Readme_images/userFlow.png)
+   ![Image of userFlow](/Readme_images/userFlow.png)
   
   - [ ] Database schema
-   ![Image of Database](/Users/aleum/Documents/Codely/FirstProject/Readme_images/Database.png)
+   ![Image of Database](/Readme_images/Database.png)
   
   - [ ] API routes plan
-   ![Image of Routes](/Users/aleum/Documents/Codely/FirstProject/Readme_images/Routes.png)
+   ![Image of Routes](/Readme_images/Routes.png)
   
   - [ ] Full stack architecture drawing
-   ![Image of architecture](/Users/aleum/Documents/Codely/FirstProject/Readme_images/architecture.jpg)
+   ![Image of architecture](/Readme_images/architecture.jpg)
+
+
+
+
 
 
 
