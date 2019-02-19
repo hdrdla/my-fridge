@@ -55,9 +55,9 @@ MyFridge is using HTML, CSS, React for frontend and Express and MySQL for backen
 Run `yarn` to install dependencies.
 
 ### Database Prep
-- [ ] Create `.env` file in project directory and add `DB_PASS=YOURPASSWORD`.
+- [ ] Create `.env` file in the api directory and add `DB_PASS=YOURPASSWORD`.
 
-- [ ] Type `mysql -u root -p -e "create database myFridge"` to create a database in MySQL.
+- [ ] Type `mysql -u root -p -e "create database myFridge"` in your terminal to create a database in MySQL.
 
 - [ ] Run `node server/models/database.js`. This will create a table called 'items' in your database. If you experience errors regarding authentication, run the following in mysql first: `ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'YOUR_PASSWORD';`.
 
