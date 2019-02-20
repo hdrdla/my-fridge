@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/api/v1/items', (req, res, next) => { //api/v1/items?is_fridge===1) then query params
-  db('SELECT * FROM items ORDER BY date DESC;')
+  db('SELECT * FROM items ORDER BY date ASC;')
     .then(results => {
       if (results.error) { // where .error and .data come from? JS? Express?
         res.status(404).send(results.error);
@@ -41,7 +41,9 @@ router.post('/api/v1/items', (req, res, next) => { // what is next???
     res.status(400).send(responseBody);
   }
 
-  db(`INSERT INTO items (name, fridge, date, quantity) VALUES ('${req.body.name}', ${req.body.fridge}, ${req.body.date}, ${req.body.quanity}); SELECT LAST_INSERT_ID();`)
+  let query = `INSERT INTO items (name, fridge, date, quantity) VALUES ('${req.body.name}', ${req.body.fridge}, '${req.body.date}', ${req.body.quantity}); SELECT LAST_INSERT_ID();`
+  console.log(query)
+  db(query)
     .then (results => {
       if (results.error) {
         responseBody.text = results.error;
@@ -53,7 +55,8 @@ router.post('/api/v1/items', (req, res, next) => { // what is next???
       res.send(responseBody);
     })
 })
-// INSERT INTO items (name, fridge, date, quantity) VALUES ('banana', 1, '2019-02-19', 5); SELECT LAST_INSERT_ID();
+// INSERT INTO items (name, fridge, date, quantity) VALUES ('tomato', 1, '2019-02-05', 3); SELECT LAST_INSERT_ID();
+//INSERT INTO items (name, fridge, date, quantity) VALUES ('tomato', 1, '2019-02-05', 6); SELECT LAST_INSERT_ID();
 /*
 {
 	"id": 1,
