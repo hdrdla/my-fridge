@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import NewFood from './components/newFood';
-import FridgeList from './components/fridgeList';
-import FreezerList from './components/freezerList';
+import FridgeFreezerList from './components/fridgeFreezerList';
 import './App.css';
 
 class App extends Component {
@@ -15,8 +14,7 @@ class App extends Component {
       <div>
      
         <NewFood />
-        <FridgeList />
-        <FreezerList />     
+        <FridgeFreezerList />   
         
       </div>
     );

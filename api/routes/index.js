@@ -15,7 +15,7 @@ router.get('/api/v1/items', (req, res, next) => { //api/v1/items?is_fridge===1) 
         res.status(404).send(results.error);
       }
       console.log('results: ' + JSON.stringify(results.data));
-      res.send("succesfully GET");
+      res.send(results.data);
     })  // why we don-t throw Error?? actually it does not work
 });
 
@@ -52,7 +52,8 @@ router.post('/api/v1/items', (req, res, next) => { // what is next???
       console.log("results are", results.data);
       responseBody.success = true;
       responseBody.text = 'Successfully POST';
-      res.send(responseBody);
+      console.log(responseBody);
+      res.send(results.data);
     })
 })
 // INSERT INTO items (name, fridge, date, quantity) VALUES ('tomato', 1, '2019-02-05', 3); SELECT LAST_INSERT_ID();
@@ -74,7 +75,7 @@ router.delete('/api/v1/items/:id', (req, res, next) => {
         res.status(500).send(results.error)
       }
       console.log('results are', results.data)
-      res.send('successfully DELETE');
+      res.send(results.data);
     })
 })
 
