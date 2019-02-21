@@ -6,28 +6,11 @@ class FridgeFreezerList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      fridgeFreezerList: []
+    
     };
   }
 
-  componentDidMount() {
-    fetch('http://localhost:9000/api/v1/items') 
-      .then(res => {
-        if (!res.ok) {
-          throw Error(res.statusText);
-        }
-        return res.json();
-      })
-      .then(json => {
-        console.log(json); 
-        this.setState ({
-          fridgeFreezerList: json
-        });
-      })
-      .catch(error => {
-        console.log(error)
-      })
-  }
+  
 
   removeItems() {
 
@@ -40,8 +23,8 @@ class FridgeFreezerList extends Component {
         <div>
           <h2>My Fridge List</h2>
           
-          <div class="container"> 
-            <table class="table table-striped table-bordered table-hover">
+          <div className="container"> 
+            <table className="table table-striped table-bordered table-hover">
               <thead>
                 <tr>
                   <th>Items</th>
@@ -52,14 +35,14 @@ class FridgeFreezerList extends Component {
               </thead>
               <tbody>
               {
-                this.state.fridgeFreezerList
+                this.props.fridgeFreezerList
                 .filter(item => item.fridge === 1)
                 .map((item, i) => {                
-                    return <tr key = {i}>                 {/*WHY RETURN?????!!!!!*/}
+                    return <tr key={i}>                
                             <td>{item.name}</td>
                             <td>{item.date}</td>
                             <td>{item.quantity}</td> 
-                            <td><button onClink = {(event) => this.removeItem(event, i)}>Remove</button></td>     
+                            <td><button onClick = {(event) => this.removeItem(event, i)}></button></td>
                           </tr>
                   }
                  )
@@ -76,5 +59,6 @@ class FridgeFreezerList extends Component {
       )
     }
   };
+
 
 export default FridgeFreezerList;

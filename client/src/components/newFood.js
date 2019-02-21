@@ -7,12 +7,12 @@ class NewFood extends Component {
         super(props);
         this.state = {
           food: '',
+          fridge: true,
           date: '',
-          quantity: 0,
-          fridge: 1,
-          fridgeFreezerList: []
+          quantity: 0
         };
       }
+    
 
     
     
@@ -21,13 +21,16 @@ class NewFood extends Component {
         this.setState ({
             food: e.target.value
         });
+        console.log(this.state.food);
     }
 
     updateFridge(e) {
         this.setState ({
             fridge: e.targe.value
         })
+        console.log(this.state.fridge)
     }
+
 
     updateDate(e) {
         e.preventDefault();
@@ -36,31 +39,23 @@ class NewFood extends Component {
         });
     }
 
-    addItem(e) {
+    updateQuantity(e) {
         e.preventDefault();
+        this.setState ({
+            quantity: e.target.value
+        });
+    }
 
+
+
+    handleClick() {
         let newItem = {
             food: this.state.food,
+            fridge: this.state.fridge,
             date: this.state.date,
-            quantity: this.state.quantity,
-            fridge: this.state.fridge
+            quantity: this.state.quantity
         }
-        fetch('http://localhost:9000/api/v1/items', {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newItem) 
-        })
-        .then (res => {
-            if (!res.ok) {
-                throw Error(res.statusText);
-            }
-            this.setState ({
-                fridgeFreezerList: [...this.state.fridgeFreezerList, newItem]
-            });
-        })
-        .catch (error => console.log(error))
+        this.props.addItem(newItem)
     }
 
 
@@ -70,34 +65,34 @@ class NewFood extends Component {
     render() {
       return (
         <div>
-            <div class="jumbotron text-center">
-                <div class="container">
+            <div className="jumbotron text-center">
+                <div className="container">
                     <h1>My Fridge</h1>
                     <p>Update your fridge item and prevent from food waste!</p>
                 </div>
-                <div class="container">
-                    <form class="form-inline">
-                        <div class="form-group">
+                <div className="container">
+                    <form className="form-inline">
+                        <div className="form-group">
                             <lable>Food</lable>
-                            <input class="form-control" onChange = { e => this.updateFood(e)} />
+                            <input className="form-control" onChange = { e => this.updateFood(e)} />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <lable>Date</lable>
-                            <input class="form-control" placeholder="YYYY-MM-DD" onChange = { e => this.updateDate(e)}/>
+                            <input className="form-control" placeholder="YYYY-MM-DD" onChange = { e => this.updateDate(e)}/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <lable>Quantity</lable>
-                            <input class="form-control" onChange = { e => this.updateQuantity(e)}/>
+                            <input className="form-control" onChange = { e => this.updateQuantity(e)}/>
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <lable>Where</lable>
-                            <select onChange = { e => this.updateFridge(e)}>
-                                <option value="1">Fridge</option>
-                                <option value="2">Freezer</option>
+                            <select value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                                <option value={1}>Fridge</option>
+                                <option value={0}>Freezer</option>
                             </select>
                         </div>     
                     </form>
-                    <button class="btn btn-primary" onClick = { e => this.addItem(e)}>Submit</button>
+                    <button className="btn btn-primary" onClick = { () => this.handleClick()}>Submit</button>
                 </div> 
             </div>
         </div>
