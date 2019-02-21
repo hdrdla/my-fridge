@@ -7,19 +7,17 @@ class NewFood extends Component {
         super(props);
         this.state = {
           food: '',
-          fridge: true,
+          fridge: '',
           date: '',
           quantity: 0
         };
       }
     
-
     
-    
-    updateFood(e) {
+    handleChange(e) {
         e.preventDefault();
         this.setState ({
-            food: e.target.value
+            [e.targe.name]: e.target.value
         });
         console.log(this.state.food);
     }
@@ -27,25 +25,8 @@ class NewFood extends Component {
     updateFridge(e) {
         this.setState ({
             fridge: e.targe.value
-        })
-        console.log(this.state.fridge)
-    }
-
-
-    updateDate(e) {
-        e.preventDefault();
-        this.setState ({
-            date: e.target.value
         });
     }
-
-    updateQuantity(e) {
-        e.preventDefault();
-        this.setState ({
-            quantity: e.target.value
-        });
-    }
-
 
 
     handleClick() {
@@ -74,21 +55,20 @@ class NewFood extends Component {
                     <form className="form-inline">
                         <div className="form-group">
                             <lable>Food</lable>
-                            <input className="form-control" onChange = { e => this.updateFood(e)} />
+                            <input className="form-control" name="food" onChange = { e => this.handleChange(e)} />
                         </div>
                         <div className="form-group">
                             <lable>Date</lable>
-                            <input className="form-control" placeholder="YYYY-MM-DD" onChange = { e => this.updateDate(e)}/>
+                            <input className="form-control" name="date" placeholder="YYYY-MM-DD" onChange = { e => this.handleChange(e)}/>
                         </div>
                         <div className="form-group">
                             <lable>Quantity</lable>
-                            <input className="form-control" onChange = { e => this.updateQuantity(e)}/>
+                            <input className="form-control" name="quantity" onChange = { e => this.handleChange(e)}/>
                         </div>
                         <div className="form-group">
-                            <lable>Where</lable>
                             <select value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
-                                <option value={1}>Fridge</option>
-                                <option value={0}>Freezer</option>
+                                <option value="fridge">Fridge</option>
+                                <option value="freezer">Freezer</option>
                             </select>
                         </div>     
                     </form>
