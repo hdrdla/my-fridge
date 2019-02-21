@@ -29,6 +29,8 @@ class NewFood extends Component {
     }
 
 
+    
+
     handleClick() {
         let newItem = {
             food: this.state.food,
