@@ -3,6 +3,7 @@ import NewFood from './components/newFood';
 import FridgeList from './components/fridgeList';
 import './App.css';
 import FreezerList from './components/freezerList';
+import 'bootstrap/dist/css/bootstrap.css';
 
 class App extends Component {
 
@@ -70,11 +71,14 @@ class App extends Component {
         <div>
           <div>
             <button onClick={() => this.changeList(true)}>Fridge</button>
-            <button onClick={() => this.changeList(false)}>Fridge</button>
+            <button onClick={() => this.changeList(false)}>Freezer</button>
           </div> 
           <div>
-            <FridgeList fridgeFreezerList={this.state.fridgeFreezerList}/> 
-            <FreezerList fridgeFreezerList={this.state.fridgeFreezerList}/>  
+            {this.state.fridgeView ? <FridgeList fridgeFreezerList={this.state.fridgeFreezerList}/>
+              : <FreezerList fridgeFreezerList={this.state.fridgeFreezerList}/>
+            }
+             
+             
           </div>
         </div>
      </div>
