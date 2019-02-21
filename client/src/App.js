@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import NewFood from './components/newFood';
-import FridgeFreezerList from './components/fridgeFreezerList';
+import FridgeList from './components/fridgeList';
 import './App.css';
+import FreezerList from './components/freezerList';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
+      fridgeView: true,
       fridgeFreezerList: []
     };
   }
@@ -51,16 +53,31 @@ class App extends Component {
     .catch (error => console.log(error))
   }
 
+  changeList(e) {
+    this.setState ({
+      fridgeView: e
+    });
+  }
 
 
   render() {
     return (
       <div>
-     
-        <NewFood addItem={this.addItem}/>
-        <FridgeFreezerList fridgeFreezerList={this.state.fridgeFreezerList}/>   
-        
-      </div>
+        <div>
+          <NewFood addItem={this.addItem}/>
+        </div>
+
+        <div>
+          <div>
+            <button onClick={() => this.changeList(true)}>Fridge</button>
+            <button onClick={() => this.changeList(false)}>Fridge</button>
+          </div> 
+          <div>
+            <FridgeList fridgeFreezerList={this.state.fridgeFreezerList}/> 
+            <FreezerList fridgeFreezerList={this.state.fridgeFreezerList}/>  
+          </div>
+        </div>
+     </div>
     );
   }
 }
