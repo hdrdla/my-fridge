@@ -12,9 +12,7 @@ class FreezerList extends Component {
       }
     
       
-    
 
-    
     
     render() {
           return (
@@ -34,17 +32,19 @@ class FreezerList extends Component {
                   <tbody>
                   {
                     this.props.fridgeFreezerList
-                    .filter(item => item.fridge === 0)
-                    .map((item, i) => {                
-                        return <tr key={i}>                
-                                <td>{item.name}</td>
-                                <td>{item.date}</td>
-                                <td>{item.quantity}</td> 
-                                <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
-                              </tr>
-                      }
-                     )
-                    }
+                  
+                    .map((item, i) => { 
+                        if (item.fridge === 0) {              
+                            return <tr key={i}>                
+                                    <td>{item.name}</td>
+                                    <td>{item.date}</td>
+                                    <td>{item.quantity}</td> 
+                                    <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
+                                </tr>;
+                             }
+                            return <div></div>;
+                         }
+                    )}
                   </tbody>
                 </table>
                 </div>
@@ -55,7 +55,7 @@ class FreezerList extends Component {
         }
 
 
-
+  
 
 
 

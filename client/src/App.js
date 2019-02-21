@@ -66,8 +66,8 @@ class App extends Component {
         if (!res.ok) {
           throw Error(res.statusText);
         }
-        let arr = this.state.fridgeFreezerList
-        this.state.fridgeFreezerList.splice(i, 0)
+        let arr = this.state.fridgeFreezerList;
+        arr.splice(i, 1)
         this.setState ({
             fridgeFreezerList: arr
         });

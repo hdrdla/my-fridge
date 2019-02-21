@@ -6,7 +6,7 @@ class NewFood extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          food: '',
+          name: '',
           fridge: 1,
           date: '',
           quantity: 0
@@ -18,7 +18,6 @@ class NewFood extends Component {
         this.setState ({
             [e.target.name]: e.target.value
         });
-        console.log(this.state.food);
     }
 
     updateFridge(e) {
@@ -29,12 +28,13 @@ class NewFood extends Component {
 
     handleClick() {
         let newItem = {
-            food: this.state.food,
+            name: this.state.name,
             fridge: this.state.fridge,
             date: this.state.date,
             quantity: this.state.quantity
         }
-        this.props.addItem(newItem)
+        this.props.addItem(newItem);
+ 
     }
 
 
@@ -52,15 +52,15 @@ class NewFood extends Component {
                 <div className="container">
                     <form className="form-inline">
                         <div className="form-group">
-                            <lable>Food</lable>
-                            <input className="form-control" name="food" onChange = { e => this.handleChange(e)} />
+                            <label>Food</label>
+                            <input className="form-control" name="name" onChange = { e => this.handleChange(e)} />
                         </div>
                         <div className="form-group">
-                            <lable>Date</lable>
+                            <label>Date</label>
                             <input className="form-control" name="date" placeholder="YYYY-MM-DD" onChange = { e => this.handleChange(e)}/>
                         </div>
                         <div className="form-group">
-                            <lable>Quantity</lable>
+                            <label>Quantity</label>
                             <input className="form-control" name="quantity" onChange = { e => this.handleChange(e)}/>
                         </div>
                         <div className="form-group">

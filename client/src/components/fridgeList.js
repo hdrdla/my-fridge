@@ -31,16 +31,18 @@ class FridgeList extends Component {
               <tbody>
               {
                 this.props.fridgeFreezerList
-                .filter(item => item.fridge === 1)
-                .map((item, i) =>                
-                    <tr key={i}>                
+                .map((item, i) => {
+                  if (item.fridge === 1) {
+                    return <tr key={i}>                
                       <td>{item.name}</td>
                       <td>{item.date}</td>
                       <td>{item.quantity}</td> 
                       <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
-                    </tr>                  
-                 )
-                }
+                    </tr> 
+                    }
+                    return <div></div>;
+                  }               
+                )}
 
 {/* when do i need{}???? 
 this.props.fridgeFreezerList
