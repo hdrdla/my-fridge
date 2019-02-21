@@ -13,13 +13,13 @@ class FreezerList extends Component {
     
       
     
-      removeItems() {
+    removeItems() {
     
       }
     
     
     
-        render() {
+    render() {
           return (
             <div>
               <div>

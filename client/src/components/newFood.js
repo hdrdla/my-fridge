@@ -7,29 +7,25 @@ class NewFood extends Component {
         super(props);
         this.state = {
           food: '',
-          fridge: '',
+          fridge: 1,
           date: '',
           quantity: 0
         };
       }
     
-    
     handleChange(e) {
         e.preventDefault();
         this.setState ({
-            [e.targe.name]: e.target.value
+            [e.target.name]: e.target.value
         });
         console.log(this.state.food);
     }
 
     updateFridge(e) {
         this.setState ({
-            fridge: e.targe.value
+            fridge: e.target.value
         });
     }
-
-
-    
 
     handleClick() {
         let newItem = {
@@ -69,8 +65,8 @@ class NewFood extends Component {
                         </div>
                         <div className="form-group">
                             <select value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
-                                <option value="fridge">Fridge</option>
-                                <option value="freezer">Freezer</option>
+                                <option value={1}>Fridge</option>
+                                <option value={0}>Freezer</option>
                             </select>
                         </div>     
                     </form>
