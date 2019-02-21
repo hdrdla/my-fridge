@@ -54,6 +54,29 @@ class App extends Component {
     .catch (error => console.log(error))
   }
 
+  removeItem(event, i) {
+    event.preventDefault();
+    fetch(`http://localhost:9000/api/v1/items/${this.state.fridgeFreezerList[i].id}`, {
+      method: "DELETE",
+      headers: {
+              "Content-Type": "application/json",
+      },
+    })
+    .then (res => {
+        if (!res.ok) {
+          throw Error(res.statusText);
+        }
+        let arr = this.state.fridgeFreezerList
+        this.state.fridgeFreezerList.splice(i, 0)
+        this.setState ({
+            fridgeFreezerList: arr
+        });
+    })
+    .catch (error => console.log(error))
+    }
+
+
+
   changeList(e) {
     this.setState ({
       fridgeView: e
@@ -74,8 +97,8 @@ class App extends Component {
             <button onClick={() => this.changeList(false)}>Freezer</button>
           </div> 
           <div>
-            {this.state.fridgeView ? <FridgeList fridgeFreezerList={this.state.fridgeFreezerList}/>
-              : <FreezerList fridgeFreezerList={this.state.fridgeFreezerList}/>
+            {this.state.fridgeView ? <FridgeList fridgeFreezerList={this.state.fridgeFreezerList} removeItem={(event, i) => this.removeItem(event, i)}/>
+              : <FreezerList fridgeFreezerList={this.state.fridgeFreezerList} removeItem={(event, i) => this.removeItem(event, i)}/>
             }
              
              

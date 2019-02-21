@@ -13,10 +13,7 @@ class FreezerList extends Component {
     
       
     
-    removeItems() {
-    
-      }
-    
+
     
     
     render() {
@@ -43,7 +40,7 @@ class FreezerList extends Component {
                                 <td>{item.name}</td>
                                 <td>{item.date}</td>
                                 <td>{item.quantity}</td> 
-                                <td><button onClick = {(event) => this.removeItem(event, i)}></button></td>
+                                <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
                               </tr>
                       }
                      )
