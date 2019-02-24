@@ -3,7 +3,11 @@ import NewFood from './components/newFood';
 import FridgeList from './components/fridgeList';
 import './App.css';
 import FreezerList from './components/freezerList';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+
+
 
 class App extends Component {
 
@@ -24,7 +28,6 @@ class App extends Component {
         return res.json();
       })
       .then(json => {
-        console.log(json); 
         this.setState ({
           fridgeFreezerList: json
         });
@@ -35,6 +38,7 @@ class App extends Component {
   }
 
   addItem(newItem) {
+    console.log(newItem);
     //newItem.preventDefault();
     fetch('http://localhost:9000/api/v1/items', {
         method: "POST", 
@@ -47,9 +51,11 @@ class App extends Component {
         if (!res.ok) {
           throw Error(res.statusText);
         }
+        const currentList = this.state.fridgeFreezerList;
         this.setState ({
-            fridgeFreezerList: [...this.state.fridgeFreezerList, newItem]
+            fridgeFreezerList: [...currentList, newItem]
         });
+        console.log(this.state.fridgeFreezerList)
     })
     .catch (error => console.log(error))
   }
@@ -88,13 +94,13 @@ class App extends Component {
     return (
       <div>
         <div>
-          <NewFood addItem={this.addItem}/>
+          <NewFood addItem={(item) => this.addItem(item)}/>
         </div>
 
         <div>
-          <div>
-            <button onClick={() => this.changeList(true)}>Fridge</button>
-            <button onClick={() => this.changeList(false)}>Freezer</button>
+          <div className="container text-right">
+            <button className={this.state.fridgeView === true ? "btn btn-primary btn-sm" : "btn btn-info btn-sm"} onClick={() => this.changeList(true)}>Fridge</button>
+            <button className={this.state.fridgeView ? "btn btn-info btn-sm" : "btn btn-primary btn-sm"} onClick={() => this.changeList(false)}>Freezer</button>
           </div> 
           <div>
             {this.state.fridgeView ? <FridgeList fridgeFreezerList={this.state.fridgeFreezerList} removeItem={(event, i) => this.removeItem(event, i)}/>

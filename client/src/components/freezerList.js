@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import { NavLink } from 'react-router-dom';
 
 class FreezerList extends Component {
 
@@ -17,16 +18,19 @@ class FreezerList extends Component {
     render() {
           return (
             <div>
-              <div>
+              <div className="container">
                 <h2>My Freezer List</h2>
-                <div className="container"> 
-                <table className="table table-striped table-bordered table-hover">
+              </div>
+
+              <div className="container"> 
+                <table className="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>Items</th>
                       <th>Date</th>
                       <th>Quantity</th>
                       <th>Remove Items</th>
+                      <th>Get Recipes</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -40,16 +44,16 @@ class FreezerList extends Component {
                                     <td>{item.date}</td>
                                     <td>{item.quantity}</td> 
                                     <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
-                                </tr>;
-                             }
-                            return <div></div>;
-                         }
+                                    <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
+                                </tr>
+                              }
+                            return <tr key={i}></tr>;
+                          }
                     )}
                   </tbody>
                 </table>
-                </div>
               </div>
-    
+
             </div>
           )
         }

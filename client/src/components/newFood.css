@@ -1,0 +1,35 @@
+#jumbo {
+    padding-top: 230px;
+    background-image: url('./jumbo.jpg'); 
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center center;
+}
+#hr {
+    border-color: white;
+    border-top: 2px solid #fff;
+    width: 80px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+      
+}
+
+#label {
+ color: white;
+ font-weight: bold;   
+ vertical-align: top;
+}
+
+#p {
+    color: white;
+}
+
+#select {
+    margin-top: 32px;
+    width: 50%
+}
+
+#form {
+    margin-left: 100px;
+    margin-top: 30px;
+}

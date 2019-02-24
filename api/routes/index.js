@@ -19,6 +19,21 @@ router.get('/api/v1/items', (req, res, next) => { //api/v1/items?is_fridge===1) 
     })  // why we don-t throw Error?? actually it does not work
 });
 
+
+router.get('/api/v1/items/:id', (req, res, next) => { 
+  db(`SELECT * FROM items WHERE id = ${req.params.id};`)
+    .then(results => {
+      if (results.error) { // where .error and .data come from? JS? Express?
+        res.status(404).send(results.error);
+      }
+      console.log('results: ' + JSON.stringify(results.data));
+      res.send(results.data);
+    })  // why we don-t throw Error?? actually it does not work
+});
+
+
+
+
 router.post('/api/v1/items', (req, res, next) => { // what is next???
 
   const responseBody = {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import './newFood.css'
 
 class NewFood extends Component {
 
@@ -7,7 +8,7 @@ class NewFood extends Component {
         super(props);
         this.state = {
           name: '',
-          fridge: 1,
+          fridge: 'select',
           date: '',
           quantity: 0
         };
@@ -18,12 +19,15 @@ class NewFood extends Component {
         this.setState ({
             [e.target.name]: e.target.value
         });
+
     }
 
     updateFridge(e) {
+        e.preventDefault();
         this.setState ({
             fridge: e.target.value
         });
+        console.log(this.state.fridge)
     }
 
     handleClick() {
@@ -44,33 +48,48 @@ class NewFood extends Component {
     render() {
       return (
         <div>
-            <div className="jumbotron text-center">
-                <div className="container">
-                    <h1>My Fridge</h1>
-                    <p>Update your fridge item and prevent from food waste!</p>
+            <div id="jumbo" className="jumbotron">
+                <div className="container white-text text-center align-items-center align-content-center">
+                    <h1 className="text-uppercase mb-0 pt-md-5 pt-5" id="label">My Fridge</h1>
+                    <hr id="hr"></hr>
+                    <p id="p">Update your fridge item and prevent from food waste!</p>
                 </div>
                 <div className="container">
-                    <form className="form-inline">
-                        <div className="form-group">
-                            <label>Food</label>
+                    <form id="form" className="form-group form-row">
+                        <div className="form-group col-xs-3 col-md-3">
+                            <label className="control-label" id="label">Food</label>
                             <input className="form-control" name="name" onChange = { e => this.handleChange(e)} />
                         </div>
-                        <div className="form-group">
-                            <label>Date</label>
+                        <div className="form-group col-xs-3 col-md-3">
+                            <label className="control-label" id="label">Date</label>
                             <input className="form-control" name="date" placeholder="YYYY-MM-DD" onChange = { e => this.handleChange(e)}/>
                         </div>
-                        <div className="form-group">
-                            <label>Quantity</label>
+                        <div className="form-group col-xs-3 col-md-3">
+                            <label className="control-label" id="label">Quantity</label>
                             <input className="form-control" name="quantity" onChange = { e => this.handleChange(e)}/>
                         </div>
-                        <div className="form-group">
-                            <select value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                        {/*<div className="form-group dropdown">
+                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Select
+                            </button>
+                            <div value={this.state.fridge} onChange = { e => this.updateFridge(e)} className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a value={1} className="dropdown-item" href="#">Fridge</a>
+                                <a value={0} className="dropdown-item" href="#">Freezer</a>
+                            </div>
+                        </div>*/}
+                        <div className="form-group col-xs-3 col-md-3">
+                            <select id="select" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                                <option value={"select"}>Select</option>
                                 <option value={1}>Fridge</option>
                                 <option value={0}>Freezer</option>
                             </select>
-                        </div>     
+                        </div>  
                     </form>
-                    <button className="btn btn-primary" onClick = { () => this.handleClick()}>Submit</button>
+                    <div className="form-group text-center align-items-center align-content-center">
+                        <button className="btn btn-primary" onClick = {() => this.handleClick()}>Submit</button>   
+                    </div>
+
+                    
                 </div> 
             </div>
         </div>
