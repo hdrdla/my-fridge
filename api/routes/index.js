@@ -40,7 +40,7 @@ router.post('/api/v1/items', (req, res, next) => { // what is next???
     success: false,
     text: ''
   }
-
+console.log();
   if (!req.body.name) {
     responseBody.name = 'Name must be defined';
     res.status(400).send(responseBody);

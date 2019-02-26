@@ -8,11 +8,10 @@ class FridgeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-    
     };
   }
 
-  
+ 
 
 
     render() {
@@ -38,9 +37,19 @@ class FridgeList extends Component {
                   </tr>
                 </thead>
                 <tbody>
+
+              { /* the newest item being added
+              // always has the fridge boolean as a string
+              // and then in your render function 
+              // you are checking for only items that have
+              // if (item.fridge === 1) */ }
+              
+                
+              
+
                 {
                   this.props.fridgeFreezerList.map((item, i) => {
-                    if (item.fridge === 1) {
+                    if (item.fridge == 1) {
                       return <tr key={i}>     
                       {console.log(this.props.fridgeFreezerList)}           
                         <td>{item.name}</td>
