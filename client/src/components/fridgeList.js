@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom';
+import './fridgeList.css'
 
 class FridgeList extends Component {
 
@@ -19,9 +20,9 @@ class FridgeList extends Component {
       
         <div>
           <div className="container">
-            <div className="container">
+            <div className="container text-left align-items-left align-content-left">
               <h2>My Fridge List</h2>
-              <hr id="hr" class="hr-light my-4"></hr>
+              <hr id="hr1" align="left" className="hr-light"></hr>
             </div>
             
             
@@ -38,14 +39,14 @@ class FridgeList extends Component {
                 </thead>
                 <tbody>
                 {
-                  this.props.fridgeFreezerList
-                  .map((item, i) => {
+                  this.props.fridgeFreezerList.map((item, i) => {
                     if (item.fridge === 1) {
-                      return <tr key={i}>                
+                      return <tr key={i}>     
+                      {console.log(this.props.fridgeFreezerList)}           
                         <td>{item.name}</td>
-                        <td>{item.date}</td>
+                        <td>{item.date.split('').splice(0, 10).join('')}</td>
                         <td>{item.quantity}</td> 
-                        <td><button onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
+                        <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
                         <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
                       </tr> 
                       }

@@ -3,9 +3,8 @@ import NewFood from './components/newFood';
 import FridgeList from './components/fridgeList';
 import './App.css';
 import FreezerList from './components/freezerList';
-import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/js/bootstrap.js';
+
 
 
 
@@ -99,8 +98,8 @@ class App extends Component {
 
         <div>
           <div className="container text-right">
-            <button className={this.state.fridgeView === true ? "btn btn-primary btn-sm" : "btn btn-info btn-sm"} onClick={() => this.changeList(true)}>Fridge</button>
-            <button className={this.state.fridgeView ? "btn btn-info btn-sm" : "btn btn-primary btn-sm"} onClick={() => this.changeList(false)}>Freezer</button>
+            <button className={this.state.fridgeView === true ? "btn btn-primary mr-1" : "btn btn-default mr-1"} onClick={() => this.changeList(true)}>Fridge</button>
+            <button className={this.state.fridgeView ? "btn btn-default mr-1" : "btn btn-primary mr-1"} onClick={() => this.changeList(false)}>Freezer</button>
           </div> 
           <div>
             {this.state.fridgeView ? <FridgeList fridgeFreezerList={this.state.fridgeFreezerList} removeItem={(event, i) => this.removeItem(event, i)}/>

@@ -66,7 +66,7 @@ class Recipes extends Component {
                         {
                         this.state.recipes.map((item, i) => 
                             <div className="col-md-4" key={i}>                
-                                <a href={item.recipe.shareAs}><img className="img-rounded" alt={item.recipe.label} src={item.recipe.image}/></a>
+                                <a href={item.recipe.url}><img className="img-rounded" alt={item.recipe.label} src={item.recipe.image}/></a>
                                 <p>{item.recipe.label}</p>
                             </div>   
                         )}

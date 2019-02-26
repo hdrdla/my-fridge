@@ -51,8 +51,8 @@ class NewFood extends Component {
             <div id="jumbo" className="jumbotron">
                 <div className="container white-text text-center align-items-center align-content-center">
                     <h1 className="text-uppercase mb-0 pt-md-5 pt-5" id="label">My Fridge</h1>
-                    <hr id="hr"></hr>
-                    <p id="p">Update your fridge item and prevent from food waste!</p>
+                    <hr id="hr" className="hr-light my-4"></hr>
+                    <p id="p">Update your fridge item and prevent food waste!</p>
                 </div>
                 <div className="container">
                     <form id="form" className="form-group form-row">
