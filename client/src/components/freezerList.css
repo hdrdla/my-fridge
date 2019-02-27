@@ -4,5 +4,8 @@
     width: 217px;
     margin-top: 6px;
     margin-bottom: 20px;
+}
 
+.expired {
+	background-color: rgba(255, 0, 0, 0.5);
 }

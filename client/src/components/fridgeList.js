@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom';
-import './fridgeList.css'
+import './fridgeList.css';
+
 
 class FridgeList extends Component {
 
@@ -11,10 +12,20 @@ class FridgeList extends Component {
     };
   }
 
- 
+  getDate() {
+    let nowDate = new Date();
+    let nowDateMilli = nowDate.getTime();
+    return nowDateMilli;
+  }
 
+  dateMilli (x) {
+    let userDate = new Date(x).getTime();
+    return userDate;
+  }
 
     render() {
+      let sixDays = 1000 * 3600 * 24 * 6;
+
       return (
       
         <div>
@@ -44,8 +55,6 @@ class FridgeList extends Component {
               // you are checking for only items that have
               // if (item.fridge === 1) */ }
               
-                
-              
 
                 {
                   this.props.fridgeFreezerList.map((item, i) => {
@@ -53,7 +62,7 @@ class FridgeList extends Component {
                       return <tr key={i}>     
                       {console.log(this.props.fridgeFreezerList)}           
                         <td>{item.name}</td>
-                        <td>{item.date.split('').splice(0, 10).join('')}</td>
+                        <td className={(this.getDate() > (this.dateMilli(item.date.split("T")[0]) + sixDays) ? 'expired' : null)}>{item.date.split("T")[0]}</td>
                         <td>{item.quantity}</td> 
                         <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
                         <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>

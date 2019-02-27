@@ -12,6 +12,16 @@ class FreezerList extends Component {
         };
       }
     
+      getDate() {
+        let nowDate = new Date();
+        let nowDateMilli = nowDate.getTime();
+        return nowDateMilli;
+      }
+    
+      dateMilli (x) {
+        let userDate = new Date(x).getTime();
+        return userDate;
+      }
 
 // i think you need to set a new state within this component.
 // the render() gets called the first time the component loads
@@ -25,6 +35,7 @@ class FreezerList extends Component {
 // added
     
     render() {
+      let threeMonths = 1000 * 3600 * 24 * 3 * 7;
           return (
             <div>
               <div  id="all" className="container">
@@ -50,7 +61,7 @@ class FreezerList extends Component {
                           if (item.fridge == 0) {              
                               return <tr key={i}>                
                                       <td>{item.name}</td>
-                                      <td>{item.date.split('').splice(0, 10).join('')}</td>
+                                      <td className={(this.getDate() > (this.dateMilli(item.date.split("T")[0]) + threeMonths) ? 'expired' : null)}>{item.date.split("T")[0]}</td>
                                       <td>{item.quantity}</td> 
                                       <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
                                       <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
