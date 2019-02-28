@@ -2,25 +2,29 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import { NavLink } from 'react-router-dom';
 import './freezerList.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class FreezerList extends Component {
-
 
     constructor(props) {
         super(props);
         this.state = {
         };
       }
-    
-      getDate() {
+
+      notify = () => toast.info("Did you forget about something in your freezer?");
+
+      expired(x) {
+        let userData = null;
+        let threeMonths = 1000 * 3600 * 24 * 3 * 7;;
         let nowDate = new Date();
         let nowDateMilli = nowDate.getTime();
-        return nowDateMilli;
-      }
-    
-      dateMilli (x) {
         let userDate = new Date(x).getTime();
-        return userDate;
+          if (nowDateMilli > (userDate + threeMonths)) {
+            this.notify();
+            return "expired";
+          }
       }
 
 // i think you need to set a new state within this component.
@@ -35,9 +39,9 @@ class FreezerList extends Component {
 // added
     
     render() {
-      let threeMonths = 1000 * 3600 * 24 * 3 * 7;
           return (
             <div>
+              <div><ToastContainer /></div>  
               <div  id="all" className="container">
                 <div className="container">
                   <h2>My Freezer List</h2>
@@ -61,7 +65,7 @@ class FreezerList extends Component {
                           if (item.fridge == 0) {              
                               return <tr key={i}>                
                                       <td>{item.name}</td>
-                                      <td className={(this.getDate() > (this.dateMilli(item.date.split("T")[0]) + threeMonths) ? 'expired' : null)}>{item.date.split("T")[0]}</td>
+                                      <td className={this.expired(item.date.split("T")[0])}>{item.date.split("T")[0]}</td>
                                       <td>{item.quantity}</td> 
                                       <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
                                       <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>

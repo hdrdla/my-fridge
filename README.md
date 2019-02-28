@@ -59,7 +59,7 @@ Run `yarn` to install dependencies.
 
 - [ ] Type `mysql -u root -p -e "create database myFridge"` in your terminal to create a database in MySQL.
 
-- [ ] Type `CREATE TABLE items (id INT(11) NOT NULL AUTO_INCREMENT, name VARCHAR(20) not null, fridge Boolean NOT NULL, date DATE, quantity INT(11), PRIMARY KEY (id));`.It will create a new table name items with columns (id, name, fridge, date, quantity).
+- [ ] Type `CREATE TABLE items (id INT(11) NOT NULL AUTO_INCREMENT, name VARCHAR(20) not null, type TINYINT(1) NOT NULL, fridge Boolean NOT NULL, date DATE, quantity INT(11), PRIMARY KEY (id));`.It will create a new table name items with columns (id, name, fridge, date, quantity).
 
 
 ### Run Your Start

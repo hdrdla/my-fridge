@@ -9,3 +9,36 @@
 .expired {
 	background-color: rgba(255, 0, 0, 0.5);
 }
+
+.container {
+    overflow: hidden;
+  }
+  
+  /* The "show" class is added to the filtered elements */
+  .show {
+    display: block;
+  }
+  
+  /* Style the buttons */
+  .filbtn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    margin: 3px;
+    margin-bottom: 10px;
+    border-radius: 0.25rem
+  }
+  
+  /* Add a light grey background on mouse-over */
+  .filbtn:hover {
+    background-color: #ddd;
+  }
+  
+  /* Add a dark background to the active button */
+  .filbtn.active {
+    background-color: #007bff;
+    color: white;
+
+  }

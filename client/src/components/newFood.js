@@ -60,11 +60,11 @@ class NewFood extends Component {
                             <label className="control-label" id="label">Food</label>
                             <input className="form-control" name="name" onChange = { e => this.handleChange(e)} />
                         </div>
-                        <div className="form-group col-xs-3 col-md-3">
+                        <div className="form-group col-xs-2 col-md-2">
                             <label className="control-label" id="label">Date</label>
                             <input className="form-control" name="date" placeholder="YYYY-MM-DD" onChange = { e => this.handleChange(e)}/>
                         </div>
-                        <div className="form-group col-xs-3 col-md-3">
+                        <div className="form-group col-xs-2 col-md-2">
                             <label className="control-label" id="label">Quantity</label>
                             <input className="form-control" name="quantity" onChange = { e => this.handleChange(e)}/>
                         </div>
@@ -77,11 +77,23 @@ class NewFood extends Component {
                                 <a value={0} className="dropdown-item" href="#">Freezer</a>
                             </div>
                         </div>*/}
-                        <div className="form-group col-xs-3 col-md-3">
-                            <select id="select" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
-                                <option value={"select"}>Select</option>
+                        <div className="form-group col-xs-2 col-md-2">
+                            <select id="select1" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                                <option value={"select"}>Storage</option>
                                 <option value={1}>Fridge</option>
                                 <option value={0}>Freezer</option>
+                            </select>
+                        </div>  
+                        <div className="form-group col-xs-3 col-md-3">
+                            <select id="select2" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                                <option value={"select"}>Type</option>
+                                <option value={6}>Vegetable</option>
+                                <option value={5}>Fruit</option>
+                                <option value={4}>Protein</option>
+                                <option value={3}>Meat</option>
+                                <option value={2}>Carbohydrate</option>
+                                <option value={1}>Dessert</option>
+                                <option value={0}>Other</option>
                             </select>
                         </div>  
                     </form>
