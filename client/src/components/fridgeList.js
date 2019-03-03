@@ -10,7 +10,8 @@ class FridgeList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      expiredfoods: false
+      expiredfoods: false,
+      filter: '0'   // why is this state not being set from the beginning? And why is mushrooms still on the list?
     };
   }
 
@@ -36,11 +37,14 @@ class FridgeList extends Component {
       }
   }
 
+
   filterSelection(x) {
-    console.log(x);
+    this.setState ({
+        filter: x
+    })
   }
 
-    render() {
+  render() {
       return (
       
         <div>
@@ -49,15 +53,15 @@ class FridgeList extends Component {
             <div className="container text-left align-items-left align-content-left">
               <h2>My Fridge List</h2>
               <hr id="hr1" align="left" className="hr-light"></hr>
-                <div id="Filter">
-                  <button className="filbtn active" onClick= {() => this.filterSelection('all')}>Show all</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('6')}>Fruits</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('5')}>Vegetables</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('4')}>Protein</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('3')}>Meat</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('2')}>Carbohydrates</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('1')}>Dessert</button>
-                  <button className="filbtn" onClick={() => this.filterSelection('0')}>Other</button>
+              <div id="filterBtns">
+                  <button className={this.state.filter === '0' ? "filbtn active" : "filbtn"}  onClick= {() => this.filterSelection('0')}>Show all</button>
+                  <button className={this.state.filter === '1' ? "filbtn active" : "filbtn"} onClick={() => this.filterSelection('1')}>Vegetables</button>
+                  <button className={this.state.filter === '2' ? "filbtn active" : "filbtn"} onClick={() => this.filterSelection('2')}>Fruit</button>
+                  <button className={this.state.filter === '3' ? "filbtn active" : "filbtn"} onClick={() => this.filterSelection('3')}>Protein</button>
+                  <button className={this.state.filter === '4' ? "filbtn active" : "filbtn"} onClick={() => this.filterSelection('4')}>Meat</button>
+                  <button className={this.state.filter === '5' ? "filbtn active" : "filbtn"}  onClick={() => this.filterSelection('5')}>Carbohydrates</button>
+                  <button className={this.state.filter === '6' ? "filbtn active" : "filbtn"}  onClick={() => this.filterSelection('6')}>Dessert</button>
+                  <button className={this.state.filter === '7' ? "filbtn active" : "filbtn"}  onClick={() => this.filterSelection('7')}>Other</button>
                 </div>
             </div>
             
@@ -85,18 +89,29 @@ class FridgeList extends Component {
                 {
                   this.props.fridgeFreezerList.map((item, i) => {
                     if (item.fridge == 1) {
-                      return <tr key={i} className =  {item.type}>     
-                      {console.log(this.props.fridgeFreezerList)}           
-                        <td>{item.name}</td>
-                        <td className={this.expired(item.date.split("T")[0])}>{item.date.split("T")[0]}</td>
-                        <td>{item.quantity}</td> 
-                        <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
-                        <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
-                      </tr> 
+                      if (this.state.filter === '0') {
+                        return <tr key={i}>     
+                          {console.log(this.props.fridgeFreezerList)}           
+                          <td>{item.name}</td>
+                          <td className={this.expired(item.date.split("T")[0])}>{item.date.split("T")[0]}</td>
+                          <td>{item.quantity}</td> 
+                          <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
+                          <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
+                        </tr> 
+                      } if (item.type == this.state.filter) {
+                        return <tr key={i}>     
+                          {console.log(this.props.fridgeFreezerList)}           
+                          <td>{item.name}</td>
+                          <td className={this.expired(item.date.split("T")[0])}>{item.date.split("T")[0]}</td>
+                          <td>{item.quantity}</td> 
+                          <td><button className="btn btn-sm btn-success" onClick = {(event) => this.props.removeItem(event, i)}>Remove</button></td>
+                          <td><NavLink to={`/recipes/${item.id}`}>Recipes</NavLink></td>
+                        </tr> 
                       }
+                    }
                       return <tr key={i}></tr>;
-                    }               
-                  )}
+                  }               
+                )}
 
     {/* when do i need{}???? 
     this.props.fridgeFreezerList

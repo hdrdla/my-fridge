@@ -46,6 +46,11 @@ console.log();
     res.status(400).send(responseBody);
   }
 
+  if (!req.body.type) {
+    responseBody.type = 'Type must be defined';
+    res.status(400).send(responseBody);
+  }
+
   if (!req.body.fridge) {
     responseBody.fridge = 'Fridge must be defined';
     res.status(400).send(responseBody);
@@ -56,7 +61,7 @@ console.log();
     res.status(400).send(responseBody);
   }
 
-  let query = `INSERT INTO items (name, fridge, date, quantity) VALUES ('${req.body.name}', ${req.body.fridge}, '${req.body.date}', ${req.body.quantity}); SELECT LAST_INSERT_ID();`
+  let query = `INSERT INTO items (name, type, fridge, date, quantity) VALUES ('${req.body.name}', ${req.body.type}, ${req.body.fridge}, '${req.body.date}', ${req.body.quantity}); SELECT LAST_INSERT_ID();`
   console.log(query)
   db(query)
     .then (results => {

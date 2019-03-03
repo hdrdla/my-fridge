@@ -8,6 +8,7 @@ class NewFood extends Component {
         super(props);
         this.state = {
           name: '',
+          type: 'select',
           fridge: 'select',
           date: '',
           quantity: 0
@@ -19,31 +20,18 @@ class NewFood extends Component {
         this.setState ({
             [e.target.name]: e.target.value
         });
-
-    }
-
-    updateFridge(e) {
-        e.preventDefault();
-        this.setState ({
-            fridge: e.target.value
-        });
-        console.log(this.state.fridge)
     }
 
     handleClick() {
         let newItem = {
             name: this.state.name,
+            type: this.state.type,
             fridge: this.state.fridge,
             date: this.state.date,
             quantity: this.state.quantity
         }
         this.props.addItem(newItem);
- 
     }
-
-
-
-
 
     render() {
       return (
@@ -78,22 +66,22 @@ class NewFood extends Component {
                             </div>
                         </div>*/}
                         <div className="form-group col-xs-2 col-md-2">
-                            <select id="select1" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                            <select id="select1" className="form-control" name="fridge" onChange = { e => this.handleChange(e)}>
                                 <option value={"select"}>Storage</option>
                                 <option value={1}>Fridge</option>
                                 <option value={0}>Freezer</option>
                             </select>
                         </div>  
                         <div className="form-group col-xs-3 col-md-3">
-                            <select id="select2" className="form-control" value={this.state.fridge} onChange = { e => this.updateFridge(e)}>
+                            <select id="select2" className="form-control" name="type" onChange = { e => this.handleChange(e)}>
                                 <option value={"select"}>Type</option>
-                                <option value={6}>Vegetable</option>
-                                <option value={5}>Fruit</option>
-                                <option value={4}>Protein</option>
-                                <option value={3}>Meat</option>
-                                <option value={2}>Carbohydrate</option>
-                                <option value={1}>Dessert</option>
-                                <option value={0}>Other</option>
+                                <option value={1}>Vegetable</option>
+                                <option value={2}>Fruit</option>
+                                <option value={3}>Protein</option>
+                                <option value={4}>Meat</option>
+                                <option value={5}>Carbohydrate</option>
+                                <option value={6}>Dessert</option>
+                                <option value={7}>Other</option>
                             </select>
                         </div>  
                     </form>
