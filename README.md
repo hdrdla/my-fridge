@@ -6,17 +6,17 @@ MyFridge is an app which will help you to avoid food waste from your fridge.
 
 ## FEATURES
   ### Principle Features
-    - Add item, type, quantity and date to the fridge or freezer
-    - Show the list of items in fridge and freezer by date order
-    - Sort items by category
-    - Show alert when items are close to expiration
-    - Can remove item from the fridge or freezer
-    - Show possible recipes and can chose one to show detail.
+  - Add item, type, quantity and date to the fridge or freezer
+  - Show the list of items in fridge and freezer by date order
+  - Sort items by category
+  - Show alert when items are close to expiration
+  - Can remove item from the fridge or freezer
+  - Show possible recipes and can chose one to show detail.
 
-  ### Future Features
-    - Update quantity
-    - Move an item from fridge/freezer to freezer/fridge
-    - Show the list with default image of each item
+  ### Feature Features
+  - Update quantity
+  - Move an item from fridge/freezer to freezer/fridge
+  - Show the list with default image of each item
 
 
 ## STACK
