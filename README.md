@@ -1,7 +1,7 @@
 # MY FRIDGE
 MyFridge is an app which will help you to avoid food waste from your fridge.
 
-![Image of App](images/MyFridgeScreenshot.png)
+![Image of App](readme/MyFridgeScreenshot.png)
 
 
 ## FEATURES
@@ -30,19 +30,19 @@ MyFridge is built using React, Express, Node.js, MySQL and Bootstrap.
 ## PLAN
   ### User Flow
   
-   ![Image of userFlow](images/userFlow.png)
+   ![Image of userFlow](readme/userFlow.png)
   
   ### Database schema
   
-   ![Image of Database](images/Database.png)
+   ![Image of Database](readme/Database.png)
 
   ### API routes
   
-   ![Image of Routes](images/APIRoutes.png)
+   ![Image of Routes](readme/APIRoutes.png)
   
   ### Full stack architecture
   
-   ![Image of architecture](images/architecture.png)
+   ![Image of architecture](readme/architecture.png)
 
 
 ## SETUP
