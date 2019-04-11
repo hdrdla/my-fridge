@@ -48,7 +48,7 @@ MyFridge is built using React, Express, Node.js, MySQL and Bootstrap.
 ## SETUP
 
 ### Dependencies
-Run `yarn` to install dependencies.
+Run `yarn install` to install dependencies in both client and api folders.
 
 ### Database Preparation
 - Create `.env` file in the api directory and add `DB_PASS=YOURPASSWORD` and `DB_NAME=myFridge`.
@@ -58,7 +58,7 @@ Run `yarn` to install dependencies.
 - Copy `CREATE TABLE items (id INT(11) NOT NULL AUTO_INCREMENT, name VARCHAR(20) not null, type TINYINT(1) NOT NULL, fridge Boolean NOT NULL, date DATE, quantity INT(11), PRIMARY KEY (id));`into your terminal. This will create a new table named "items" with columns (id, name, type, fridge, date, quantity).
 
 ### Begin
-Run `yarn start` in your terminal .
+Run `yarn start` in the parent folder in your terminal.
 
 
 _This is a student project that was created at [Codely](http://codely.tech), a full stack development bootcamp in Barcelona._
