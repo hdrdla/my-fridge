@@ -5,7 +5,7 @@ MyFridge is an app which will help you to avoid food waste from your fridge.
 
 
 ## FEATURES
-  ###Principle Features
+  ### Principle Features
     - Add item, type, quantity and date to the fridge or freezer
     - Show the list of items in fridge and freezer by date order
     - Sort items by category
@@ -13,7 +13,7 @@ MyFridge is an app which will help you to avoid food waste from your fridge.
     - Can remove item from the fridge or freezer
     - Show possible recipes and can chose one to show detail.
 
-  ###Future Features**
+  ### Future Features
     - Update quantity
     - Move an item from fridge/freezer to freezer/fridge
     - Show the list with default image of each item
@@ -28,19 +28,19 @@ MyFridge is built using React, Express, Node.js, MySQL and Bootstrap.
 
 
 ## PLAN
-  ###User Flow
+  ### User Flow
   
    ![Image of userFlow](images/userFlow.png)
   
-  ###Database schema
+  ### Database schema
   
    ![Image of Database](images/Database.png)
 
-  ###API routes
+  ### API routes
   
    ![Image of Routes](images/APIRoutes.png)
   
-  ###Full stack architecture
+  ### Full stack architecture
   
    ![Image of architecture](images/architecture.png)
 
