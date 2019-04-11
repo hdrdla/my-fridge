@@ -1,7 +1,7 @@
 constructor(props) {
     super(props);
     this.state = {
-      newList: [],
+      newList: []
     };
   }
 

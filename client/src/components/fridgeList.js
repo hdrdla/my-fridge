@@ -11,7 +11,7 @@ class FridgeList extends Component {
     super(props);
     this.state = {
       expiredfoods: false,
-      filter: '0'   // why is this state not being set from the beginning? And why is mushrooms still on the list?
+      filter: "0"   // why is this state not being set from the beginning? And why is mushrooms still on the list?
     };
   }
 

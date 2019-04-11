@@ -1,41 +1,38 @@
 #jumbo {
-    padding-top: 230px;
-    background-image: url('./jumbo.jpg'); 
-    background-repeat: no-repeat; 
-    background-size: cover; 
-    background-position: center center;
+	padding-top: 230px;
+	background-image: url('./jumbo.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
 }
 #hr {
-    border-color: white;
-    border-top: 2px solid #fff;
-    width: 80px;
-    margin-top: 5px;
-    margin-bottom: 20px;
-      
+	border-color: white;
+	border-top: 2px solid #fff;
+	width: 80px;
+	margin-top: 5px;
+	margin-bottom: 20px;
 }
 
 #label {
- color: white;
- font-weight: bold;   
- vertical-align: top;
+	color: white;
+	font-weight: bold;
+	vertical-align: top;
 }
 
 #p {
-    color: white;
+	color: white;
 }
 
 #select1 {
-    margin-top: 32px;
-
+	margin-top: 32px;
 }
 
 #select2 {
-    margin-top: 32px;
-
+	margin-top: 32px;
 }
 
 #form {
-    margin-left: 100px;
-    margin-right: 100px;
-    margin-top: 30px;
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 30px;
 }
